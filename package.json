@@ -1,0 +1,11 @@
+{
+  "name": "streamrollr",
+  "version": "0.0.1",
+  "description": "a small stream exploration app",
+  "main": "index.js",
+  "author": "<jackson.brebnor@gmail.com>",
+  "license": "MIT",
+  "sctipts": {
+    "start": "node ."
+  }
+}
