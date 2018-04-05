@@ -1,1 +1,1 @@
-export * from './getDogs';
+export { default as Routes } from "./routes";

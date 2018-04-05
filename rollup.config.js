@@ -53,7 +53,7 @@ const plugins = [
     plugins: [ `external-helpers` ],
   }),
   serve({
-    contentBase: [ `public`, `dist` ],
+    contentBase: [ `public` ],
     host: `localhost`,
     port: 3000,
     open: true,
