@@ -1,16 +1,17 @@
-import babel from 'rollup-plugin-babel';
-import commonjs from 'rollup-plugin-commonjs';
-import filesize from 'rollup-plugin-filesize';
-import json from 'rollup-plugin-json';
-import nodeResolve from 'rollup-plugin-node-resolve';
-import progress from 'rollup-plugin-progress';
-import replace from 'rollup-plugin-replace';
-import serve from 'rollup-plugin-serve';
-import uglify from 'rollup-plugin-uglify';
-import visualizer from 'rollup-plugin-visualizer';
+import babel from "rollup-plugin-babel";
+import commonjs from "rollup-plugin-commonjs";
+import filesize from "rollup-plugin-filesize";
+import json from "rollup-plugin-json";
+import nodeResolve from "rollup-plugin-node-resolve";
+import progress from "rollup-plugin-progress";
+import replace from "rollup-plugin-replace";
+import serve from "rollup-plugin-serve";
+import uglify from "rollup-plugin-uglify";
+import visualizer from "rollup-plugin-visualizer";
 
-import { dependencies } from './package.json';
+import { dependencies } from "./package.json";
 
+//
 const external = Object.keys(dependencies);
 
 const input = `index.js`;
@@ -22,7 +23,7 @@ const cjs = {
   file: `dist/bundle.cjs.js`,
   name: `streamrollr`,
   format: `cjs`,
-  exports: `named`,
+  exports: `none`,
 };
 
 const es = {
@@ -30,7 +31,7 @@ const es = {
   file: `dist/bundle.es.js`,
   name: `streamrollr`,
   format: `es`,
-  exports: `named`,
+  exports: `none`,
 };
 
 const output = [ es, cjs ];
@@ -57,7 +58,7 @@ const plugins = [
     host: `localhost`,
     port: 3000,
     open: true,
-    headers: { 'Access-Control-Allow-Origin': `*` },
+    headers: { "Access-Control-Allow-Origin": `*` },
   }),
 ];
 
