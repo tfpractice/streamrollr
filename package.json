@@ -5,7 +5,7 @@
   "main": "index.js",
   "author": "<jackson.brebnor@gmail.com>",
   "license": "MIT",
-  "sctipts": {
+  "scripts": {
     "start": "node ."
   }
 }
