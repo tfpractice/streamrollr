@@ -3,10 +3,10 @@
     [
       "env",
       {
+        "modules": false,
         "targets": {
           "node": "current"
-        },
-        "modules": false
+        }
       }
     ]
   ],
@@ -15,7 +15,9 @@
     [
       "module-resolver",
       {
-        "root": ["./src"],
+        "root": [
+          "./src"
+        ],
         "alias": {
           "src": "./",
           "utils": "utils",

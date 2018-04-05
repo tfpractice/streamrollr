@@ -6,9 +6,10 @@
   "author": "<jackson.brebnor@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "start": "node .",
-    "build": "NODE_ENV=production rollup -c rollup.config.js",
-    "build:dev": "rollup -c rollup.config.js"
+    "start": "nodemon --exec babel-node --presets=env -- src ",
+    "build": "NODE_ENV=production rollup -wc rollup.config.js",
+    "dev": "rollup  -wc rollup.config.js",
+    "server": "nodemon --exec babel-node --presets=env -- src"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",

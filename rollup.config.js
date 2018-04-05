@@ -1,40 +1,69 @@
 import babel from 'rollup-plugin-babel';
 import commonjs from 'rollup-plugin-commonjs';
 import filesize from 'rollup-plugin-filesize';
+import json from 'rollup-plugin-json';
 import nodeResolve from 'rollup-plugin-node-resolve';
 import progress from 'rollup-plugin-progress';
 import replace from 'rollup-plugin-replace';
+import serve from 'rollup-plugin-serve';
 import uglify from 'rollup-plugin-uglify';
 import visualizer from 'rollup-plugin-visualizer';
 
-const entry = `src/index.js`;
+import { dependencies } from './package.json';
 
-const sourceMap = true;
+const external = Object.keys(dependencies);
 
-const cjs = { file: `dist/bundle.cjs.js`, name: `streamrollr`, format: `cjs` };
+const input = `index.js`;
 
-const es = { file: `dist/bundle.es.js`, name: `streamrollr`, format: `es` };
+const sourcemap = true;
+
+const cjs = {
+  sourcemap,
+  file: `dist/bundle.cjs.js`,
+  name: `streamrollr`,
+  format: `cjs`,
+  exports: `named`,
+};
+
+const es = {
+  sourcemap,
+  file: `dist/bundle.es.js`,
+  name: `streamrollr`,
+  format: `es`,
+  exports: `named`,
+};
 
 const output = [ es, cjs ];
 
+const prod = process.env.NODE_ENV === `production`;
+
+const repOpts = { ENV: JSON.stringify(process.env.NODE_ENV || `development`) };
+
 const plugins = [
-  progress({ clearLine: false }),
+  json(),
   filesize(),
   nodeResolve(),
   commonjs(),
+  visualizer({ filename: `dist/stats.html` }),
+  progress({ clearLine: false }),
+  replace(repOpts),
+  prod && uglify(),
   babel({
-    exclude: `node_modules/**`,
+    exclude: [ `node_modules/**` ],
     plugins: [ `external-helpers` ],
   }),
-  visualizer({ filename: `stats.html` }),
-  replace({ ENV: JSON.stringify(process.env.NODE_ENV || `development`) }),
-  process.env.NODE_ENV === `production` && uglify(),
+  serve({
+    contentBase: [ `public`, `dist` ],
+    host: `localhost`,
+    port: 3000,
+    open: true,
+    headers: { 'Access-Control-Allow-Origin': `*` },
+  }),
 ];
 
 export default {
-  exports: `named`,
-  entry,
-  sourceMap,
+  input,
+
   output,
   plugins,
 };

@@ -21,8 +21,7 @@ const config = {
           utils: 'utils'
         },
         root: ['./src']
-      },
-      'babel-module-alias': {}
+      }
     }
   },
   parser: 'babel-eslint',
