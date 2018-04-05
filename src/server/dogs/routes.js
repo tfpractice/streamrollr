@@ -1,9 +1,9 @@
 import { Router } from "express";
 
-import * as handlers from "./handlers";
+import { streamDogs } from "./handlers";
 
 const router = new Router();
 
-// router.get(`/`, streamTxt);
+router.get(`/`, streamDogs);
 
-// export default router;
+export default router;

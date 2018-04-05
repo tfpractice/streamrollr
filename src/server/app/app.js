@@ -3,7 +3,7 @@ import bodyParser from "body-parser";
 import express from "express";
 import path from "path";
 
-import dogs from "../dogs";
+import { Routes as Dogs } from "../dogs";
 import { Routes as Lorem } from "../lipsum";
 
 const app = express();
@@ -21,5 +21,6 @@ app.listen(3000, () => {
 });
 
 app.use(`/lorem`, Lorem);
+app.use(`/dogs`, Dogs);
 
 export default app;
