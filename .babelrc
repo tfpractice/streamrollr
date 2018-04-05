@@ -6,20 +6,16 @@
         "targets": {
           "node": "current"
         },
-        "modules": false,
-        "loose": true
+        "modules": false
       }
-    ],
-    "react"
+    ]
   ],
   "plugins": [
     "transform-object-rest-spread",
     [
       "module-resolver",
       {
-        "root": [
-          "./src"
-        ],
+        "root": ["./src"],
         "alias": {
           "src": "./",
           "utils": "utils",
