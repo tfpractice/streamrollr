@@ -5,19 +5,20 @@
       {
         "modules": false,
         "targets": {
-          "node": "current"
+          "node": "current",
+          "chrome": 65,
+          "browsers": ["last 2 versions", "safari 7"]
         }
       }
-    ]
+    ],
+    "react"
   ],
   "plugins": [
     "transform-object-rest-spread",
     [
       "module-resolver",
       {
-        "root": [
-          "./src"
-        ],
+        "root": ["./src"],
         "alias": {
           "src": "./",
           "utils": "utils",
