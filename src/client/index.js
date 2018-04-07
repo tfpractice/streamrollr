@@ -1,19 +1,20 @@
 import React from "react";
+import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
-import * as ReactDom from "react-dom";
 import * as Styles from "material-ui/styles";
 
 import getStore from "../shared/store";
-import Main from "../shared/components";
-import { Theme } from "../shared/utils";
+
+// import Main from "../shared/components";
+// import { Theme } from "../shared/utils";
 
 // console.log(`RDOM`, RDOM);
-console.log(`ReactDom`, ReactDom);
+// console.log(`ReactDOM`, ReactDOM);
 
 // const { MuiThemeProvider } = Styles;
 
 //
-// const { render } = RDOM;
+const { render } = ReactDOM;
 
 //
 // console.log(`Styles`, Styles);
@@ -32,6 +33,6 @@ const App2 = <h2>its working</h2>;
 //
 // window.store = store;
 
-ReactDom.default.render(App2, document.getElementById(`root`));
+render(App2, document.getElementById(`root`));
 
 // Worker();

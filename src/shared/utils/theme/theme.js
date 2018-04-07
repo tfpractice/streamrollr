@@ -1,7 +1,7 @@
 import blueGrey from "material-ui/colors/blueGrey";
 import common from "material-ui/colors/common";
-import createMuiTheme from "material-ui/styles/createMuiTheme";
 import grey from "material-ui/colors/grey";
+import { createMuiTheme } from "material-ui/styles";
 
 const white = common.white;
 
