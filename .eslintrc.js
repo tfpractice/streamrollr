@@ -247,9 +247,9 @@ const config = {
       },
     ],
     "prettier/prettier": [
-      0,
+      1,
       {
-        bracketSpacing: false,
+        bracketSpacing: true,
         jsxBracketSameLine: false,
         semi: true,
         singleQuote: true,

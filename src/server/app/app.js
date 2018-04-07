@@ -1,11 +1,11 @@
-import axios from "axios";
-import bodyParser from "body-parser";
-import express from "express";
-import path from "path";
+import axios from 'axios';
+import bodyParser from 'body-parser';
+import express from 'express';
+import path from 'path';
 
-import resText from "./html";
-import { Routes as Dogs } from "../dogs";
-import { Routes as Lorem } from "../lipsum";
+import resText from './html';
+import { Routes as Dogs } from '../dogs';
+import { Routes as Lorem } from '../lipsum';
 
 const app = express();
 
