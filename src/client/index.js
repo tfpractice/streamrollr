@@ -7,16 +7,8 @@ import getStore from '../shared/store';
 import Main from '../shared/components';
 import { Theme } from '../shared/utils';
 
-// console.log(`RDOM`, RDOM);
-// console.log(`ReactDOM`, ReactDOM);
-
-// const { MuiThemeProvider } = Styles;
-
-//
 const { render } = ReactDOM;
 
-//
-// console.log(`Styles`, Styles);
 const store = getStore();
 
 const App = ({ store }) => (
@@ -26,11 +18,5 @@ const App = ({ store }) => (
     </MuiThemeProvider>
   </Provider>
 );
-
-//
-const App2 = <h2>its working</h2>;
-
-//
-// window.store = store;
 
 render(<App store={store} />, document.getElementById(`root`));
