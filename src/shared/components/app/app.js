@@ -27,8 +27,7 @@ const App = props => (
               To get started, edit <code>src/App.js</code> and save to reload.
             </p>
           </div>
-          {` `}
-          <Button onClick={props.getDogs2}>GET 2 DOGS</Button>
+          <Button onClick={props.getDogs2}> local DOGS</Button>
         </Grid>
       </Grid>
     </Grid>

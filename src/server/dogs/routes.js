@@ -1,10 +1,6 @@
-// import express, { Router } from "express";
-import Router from "express/lib/router";
+import { Router } from 'express';
 
-// console.log(`Router`, RT);
-
-// console.log(`express`, express);
-import { streamDogs } from "./handlers";
+import { streamDogs } from './handlers';
 
 const router = new Router();
 

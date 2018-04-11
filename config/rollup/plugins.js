@@ -39,7 +39,7 @@ const babel = babelRoll({
 const serve = serveRoll({
   contentBase: [`public`, `dist`],
   host: `localhost`,
-  port: 3000,
+  port: 4000,
   open: true,
   headers: { 'Access-Control-Allow-Origin': `*` },
 });
@@ -72,7 +72,8 @@ export const cliPlugins = [
   progress,
   uglify,
   filesize,
-  serve,
+
+  // serve,
 ];
 
 export const srvPlugins = [
