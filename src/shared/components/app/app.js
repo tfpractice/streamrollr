@@ -3,10 +3,6 @@ import Grid from 'material-ui/Grid';
 import React from 'react';
 import { connect } from 'react-redux';
 
-// import "./app.css";
-
-// import logo from "./logo.svg";
-
 import * as DogActions from '../../store/dogs/actions';
 
 const App = props => (
@@ -34,7 +30,7 @@ const App = props => (
   </Grid>
 );
 
-const mapState = ({ dogs: { data: dogs } }) => ({ dogs });
+const mapState = ({ dogs: { data: dogs }}) => ({ dogs });
 
 const connected = connect(mapState, DogActions);
 
