@@ -1,1 +1,1 @@
-export { default } from "./config/client";
+export { rollup as default } from './config/index';

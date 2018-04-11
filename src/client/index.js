@@ -1,12 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { MuiThemeProvider } from 'material-ui/styles';
 import { Provider } from 'react-redux';
-import * as Styles from 'material-ui/styles';
 
 import getStore from '../shared/store';
-
-// import Main from "../shared/components";
-// import { Theme } from "../shared/utils";
+import Main from '../shared/components';
+import { Theme } from '../shared/utils';
 
 // console.log(`RDOM`, RDOM);
 // console.log(`ReactDOM`, ReactDOM);
@@ -18,19 +17,20 @@ const { render } = ReactDOM;
 
 //
 // console.log(`Styles`, Styles);
-// const store = getStore();
-//
-// const App = ({ store }) => (
-//   <Provider store={store}>
-//     <MuiThemeProvider theme={Theme}>
-//       <Main />
-//     </MuiThemeProvider>
-//   </Provider>
-// );
+const store = getStore();
+
+const App = ({ store }) => (
+  <Provider store={store}>
+    <MuiThemeProvider theme={Theme}>
+      <Main />
+    </MuiThemeProvider>
+  </Provider>
+);
+
 //
 const App2 = <h2>its working</h2>;
 
 //
 // window.store = store;
 
-render(App2, document.getElementById(`root`));
+render(<App store={store} />, document.getElementById(`root`));

@@ -6,9 +6,13 @@
   "author": "<jackson.brebnor@gmail.com>",
   "license": "MIT",
   "scripts": {
+    "cc": " concurrently \"yarn server\" \"yarn client\"",
     "start": " nodemon --exec babel-node --presets=env -- src ",
+    "client": " nodemon --exec babel-node --presets=env -- src ",
     "build": " NODE_ENV=production rollup -wc rollup.config.js",
     "dev": " rollup  -wc rollup.config.js",
+    "roll:server": " rollup  -wc config/rollup/server.js",
+    "roll:client": " rollup  -wc config/rollup/client.js",
     "server": " nodemon --exec babel-node --presets=env -- src"
   },
   "dependencies": {
@@ -53,6 +57,7 @@
     "prettier": "^1.11.1",
     "prettier-eslint": "^8.8.1",
     "prop-types": "^15.6.1",
+    "rimraf": "^2.6.2",
     "rollup": "^0.57.1",
     "rollup-plugin-babel": "^3.0.3",
     "rollup-plugin-commonjs": "^9.1.0",

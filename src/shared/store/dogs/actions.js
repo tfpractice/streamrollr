@@ -1,7 +1,7 @@
-import axios from "axios";
+import axios from 'axios';
 
-import { DOG_URL, PREFIX, SET_DOGS } from "./constants";
-import { Request } from "../../utils";
+import { DOG_URL, PREFIX, SET_DOGS } from './constants';
+import { Request } from '../../utils';
 
 const { rqActions } = Request;
 
@@ -21,5 +21,11 @@ export const setDogs = dogs => ({
 export const getDogs = () => dispatch =>
   axios
     .get(DOG_URL)
+    .then(x => console.log(`x`, x) || setDogs(x.data.message))
+    .then(dispatch);
+
+export const getDogs2 = () => dispatch =>
+  axios
+    .get(`/dogs`)
     .then(x => console.log(`x`, x) || setDogs(x.data.message))
     .then(dispatch);

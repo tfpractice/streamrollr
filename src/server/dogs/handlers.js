@@ -1,11 +1,13 @@
-import axios from "axios";
-import http from "http";
-import { createReadStream, createWriteStream } from "fs";
-import { Observable } from "rxjs";
-import { resolve } from "path";
-import { rxToStream, streamToStringRx } from "rxjs-stream";
+import axios from 'axios';
+import http from 'http';
+import { createReadStream, createWriteStream } from 'fs';
+import { join, resolve } from 'path';
+import { Observable } from 'rxjs';
+import * as RXSTREAM from 'rxjs-stream';
 
-const dir = resolve(__dirname, `../data`);
+// const { streamToStringRx } = RXSTREAM;
+
+const dir = resolve(`.`, `dist/data`);
 
 const FILE_ERR = `ENOENT`;
 
@@ -38,9 +40,9 @@ const readDogs = () =>
   createReadStream(DOG_PATH, `utf8`).on(`error`, noFileErr);
 
 onData(readDogs())
-  .map(d => {
-    console.log(`========d========`, d, `========d========`);
-    return JSON.parse(d);
-  })
-  .subscribe(y => console.log(`y`, y));
+  .map(d =>
+    // console.log(`========d========`, d, `========d========`);
+    JSON.parse(d),
+  )
+  .subscribe(y => y);
 export const streamDogs = (req, res) => readDogs().pipe(res);
